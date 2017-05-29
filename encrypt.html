@@ -1,0 +1,59 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <h1><a href="/">Shoo</a></h1>
+  <h2>Encrypt</h2>
+  <div id="info-div">
+    <p>In order to encrypt some text + files, you'll need: </p>
+    <ul>
+      <li>The Public Key of the recipient.</li>
+      <li>Your Private Key (optional, for signing)</li>
+      <li>Some text and/or files</li>
+    </ul>
+    <p>Once you fill up the required fields, click on "Encrypt and download"</p>
+    <p>If you need to generate public/private keys, click <a href='/generate_keys.html'>here</a>.</p>
+  </div>
+
+  <div id="encrypt-keys-div">
+    <h3>Reuired Keys</h3>
+
+    <ul>
+      <li>
+        <p>Public key of recipient</p>
+        <textarea id="public-key-textarea"></textarea>
+      </li>
+      <li>
+        <p>Your private key for signing (optional)</p>
+        <textarea id="private-key-textarea"></textarea>
+      </li>
+      <li>
+        <p>Passphrase for your private key (optional)</p>
+        <input type="password" id="private-key-passphrase"></input>
+      </li>
+    </ul>
+  </div>
+
+  <div id="encrypt-data-div">
+    <h3>Data to Encrypt</h3>
+    <h4>Message Body</h4>
+    <textarea id="text-data" placeholder="Enter your text here"></textarea>
+
+    <h4>Files</h4>
+    <p>Choose any number of files you want to add as attachments</p>
+    <input type="file" id="files" name="files[]" multiple onchange="handleFileSelect(this)"/>
+    <ul id="file-list"></ul>
+  </div>
+
+  <div id="encrypt-submit-div">
+    <p>
+      <button type="button" id="encrypt-button" onclick="onEncryptButtonClick();">Encrypt and Download</button>
+    </p>
+  </div>
+
+  <script type="text/javascript" src="/js/openpgpjs/openpgp.min.js"></script>
+  <script type="text/javascript" src="/js/encrypt.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
