@@ -6,8 +6,9 @@ if ! [[ -d "./.git" ]]
 then
   git init
   git remote add origin $DEPLOYMENT_GIT_REPO
+  git checkout -B gh-pages
 fi
-git checkout -B gh-pages
+git checkout gh-pages
 git add .
 git commit -m "Deployed  $(date '+%d/%m/%Y_%H:%M:%S')"
 git push origin gh-pages
