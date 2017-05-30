@@ -1,0 +1,65 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <h1><a href="/">Shoo</a></h1>
+  <h2>Decrypt</h2>
+  <div id="info-div">
+    <p>In order to decrypt an encrypted message, you'll need: </p>
+    <ul>
+      <li>Your Private Key</li>
+      <li>The Public Key of the recipient (optional, for verification).</li>
+      <li>The encrypted text file file</li>
+    </ul>
+    <p>Once you fill up the required fields, click on "Decrypt".</p>
+    <p>After decryption, you should be able to read the text message and you'll
+      see an option to download the files.</p>
+    <p>If you need to generate public/private keys, click <a href='/generate_keys.html'>here</a>.</p>
+  </div>
+
+  <div id="decrypt-keys-div">
+    <h3>Reuired Keys</h3>
+
+    <ul>
+      <li>
+        <p>Your private key</p>
+        <textarea id="private-key-textarea"></textarea>
+      </li>
+      <li>
+        <p>Passphrase for your private key (optional)</p>
+        <input type="password" id="private-key-passphrase"></input>
+      </li>
+      <li>
+        <p>Public key of recipient for verification (optional)</p>
+        <textarea id="public-key-textarea"></textarea>
+      </li>
+    </ul>
+  </div>
+
+  <div id="encrtyped-data-div">
+    <h4>Encrypted File</h4>
+    <p>Select your encrypted file</p>
+    <input type="file" id="encrypted-file" name="encrypted-file"/>
+  </div>
+
+  <div id="decrypted-data-div" style="display: none;">
+    <h3>Decrypted Data</h3>
+    <h4>Message Body</h4>
+    <textarea id="text-data"></textarea>
+    <h4>Files</h4>
+    <ul id="file-list"></ul>
+  </div>
+
+  <div id="decrypt-submit-div">
+    <p>
+      <button type="button" id="decrypt-button" onclick="onDecryptButtonClick();">Decrypt</button>
+    </p>
+  </div>
+
+  <script type="text/javascript" src="/js/openpgpjs/openpgp.min.js"></script>
+  <script type="text/javascript" src="/js/encrypt.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+
+</body>
+</html>

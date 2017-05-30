@@ -1,0 +1,59 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <h1><a href="/">Shoo</a></h1>
+  <h2>Generate Keys</h2>
+  <div id="info-div">
+    <p>To use <strong>Shoo</strong>, you need a set of public/private keys.</p>
+    <p>Fill up the following form and click on <strong>Generate Keys</strong>.</p>
+    <p>We do not save your keys (as this is a javascript-only application), so store them somewhere safe :) </p>
+  </div>
+
+  <form id="generate-keys-form">
+    <table>
+      <tr>
+        <td>Name *</td>
+        <td><input type="text" name="name" required/></td>
+      </tr>
+      <tr>
+        <td>Email ID *</td>
+        <td><input type="text" name="email" required/></td>
+      </tr>
+      <tr>
+        <td>Number of Bits *</td>
+        <td><input type="number" value="4096" name="numBits" required/></td>
+      </tr>
+      <tr>
+        <td>Passphrase</td>
+        <td><input type="password" name="passphrase"/></td>
+      </tr>
+    </table>
+    <p><input type="submit" id="generate-keys-submit-button" value="Generate Keys"></input></p>
+  </form>
+
+  <div style="display: none;" id="generated-keys-div">
+    <h3>Your Keys: </h3>
+    <div id="generated-private-key-div">
+      <h4>Private Key</h4>
+      <p>Your Private Key. Always keep this safely and never share with anyone.</p>
+      <textarea id="generated-private-key-textarea"></textarea>
+    </div>
+    <div id="generated-public-key-div">
+      <h4>Public Key</h4>
+      <p>Your Public Key. You may give this to others for encrypting and sending messages to you.</p>
+      <textarea id="generated-public-key-textarea"></textarea>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="/js/openpgpjs/openpgp.min.js"></script>
+  <script type="text/javascript" src="/js/encrypt.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+
+  <script>
+    document.getElementById("generate-keys-form").addEventListener('submit', onGenerateKeysButtonClick, false);
+  </script>
+</body>
+</html>
