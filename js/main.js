@@ -55,11 +55,11 @@ function handleFileSelect(evt) {
       }
       readFiles.push(fileData);
       // Closure to capture the file information.
-      reader.onload = (function() {
+      reader.onload = (function(fileDataObj) {
         return function(e) {
-          fileData.data = e.target.result;
+          fileDataObj.data = e.target.result;
         };
-      })();
+      })(fileData);
 
       // Read in the image file as a data URL.
       reader.readAsBinaryString(f);
